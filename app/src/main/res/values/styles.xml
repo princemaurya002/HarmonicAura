@@ -1,0 +1,44 @@
+<resources>
+    <style name="ChipStyle">
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:background">@drawable/bg_chip</item>
+        <item name="android:textColor">#222</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="DayStyle">
+    <item name="android:layout_marginEnd">8dp</item>
+    <item name="android:padding">8dp</item>
+    <item name="android:textColor">#222</item>
+    <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="DaySelectedStyle">
+    <item name="android:layout_marginEnd">8dp</item>
+    <item name="android:padding">8dp</item>
+    <item name="android:textColor">#222</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:background">@drawable/bg_day_selected</item>
+    <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="CalendarDayStyle">
+    <item name="android:layout_margin">4dp</item>
+    <item name="android:gravity">center</item>
+    <item name="android:textColor">#222</item>
+    <item name="android:textSize">16sp</item>
+    </style>
+    <style name="CalendarDaySelectedStyle">
+    <item name="android:layout_margin">4dp</item>
+    <item name="android:gravity">center</item>
+    <item name="android:textColor">#222</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:background">@drawable/bg_day_selected</item>
+    <item name="android:textSize">16sp</item>
+    </style>
+</resources>

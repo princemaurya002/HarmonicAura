@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.princemaurya.harmonicaura.HomeFragment"
+        android:label="Home" />
+
+    <fragment
+        android:id="@+id/statsFragment"
+        android:name="com.princemaurya.harmonicaura.StatsFragment"
+        android:label="Stats" />
+
+    <fragment
+        android:id="@+id/addFragment"
+        android:name="com.princemaurya.harmonicaura.AddFragment"
+        android:label="Add" />
+
+    <fragment
+        android:id="@+id/penFragment"
+        android:name="com.princemaurya.harmonicaura.PenFragment"
+        android:label="Pen" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.princemaurya.harmonicaura.ProfileFragment"
+        android:label="Profile" />
+</navigation>
