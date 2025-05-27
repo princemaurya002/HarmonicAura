@@ -7,7 +7,15 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.princemaurya.harmonicaura.HomeFragment"
-        android:label="Home" />
+        android:label="Home">
+        <action
+            android:id="@+id/action_homeFragment_to_chakraFragment"
+            app:destination="@id/chakraFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
 
     <fragment
         android:id="@+id/statsFragment"
@@ -28,4 +36,9 @@
         android:id="@+id/profileFragment"
         android:name="com.princemaurya.harmonicaura.ProfileFragment"
         android:label="Profile" />
+
+    <fragment
+        android:id="@+id/chakraFragment"
+        android:name="com.princemaurya.harmonicaura.ChakraFragment"
+        android:label="Chakra Details" />
 </navigation>
