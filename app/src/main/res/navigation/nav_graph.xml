@@ -15,6 +15,20 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_homeFragment_to_healingFrequenciesFragment"
+            app:destination="@id/healingFrequenciesFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_homeFragment_to_meditationsFragment"
+            app:destination="@id/meditationsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
 
     <fragment
@@ -41,4 +55,14 @@
         android:id="@+id/chakraFragment"
         android:name="com.princemaurya.harmonicaura.ChakraFragment"
         android:label="Chakra Details" />
+
+    <fragment
+        android:id="@+id/healingFrequenciesFragment"
+        android:name="com.princemaurya.harmonicaura.HealingFrequenciesFragment"
+        android:label="Healing Frequencies" />
+
+    <fragment
+        android:id="@+id/meditationsFragment"
+        android:name="com.princemaurya.harmonicaura.Meditations"
+        android:label="Meditations" />
 </navigation>

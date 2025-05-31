@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.cardview.widget.CardView
+import android.widget.TextView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -46,6 +47,40 @@ class HomeFragment : Fragment() {
         view.findViewById<CardView>(R.id.chakra_card)?.setOnClickListener {
             // Navigate to ChakraFragment
             findNavController().navigate(R.id.action_homeFragment_to_chakraFragment)
+        }
+
+        // Find and set up the healing card
+        view.findViewById<CardView>(R.id.healing_card)?.setOnClickListener {
+            // Navigate to HealingFrequenciesFragment
+            findNavController().navigate(R.id.action_homeFragment_to_healingFrequenciesFragment)
+        }
+
+        // Find and set up the mindfulness card
+        view.findViewById<CardView>(R.id.mindfulness_card)?.setOnClickListener {
+            // Navigate to MeditationsFragment
+            findNavController().navigate(R.id.action_homeFragment_to_meditationsFragment)
+        }
+
+        // Set up date selection items
+        val dateItems = listOf(
+            view.findViewById<TextView>(R.id.date_12),
+            view.findViewById<TextView>(R.id.date_13),
+            view.findViewById<TextView>(R.id.date_14),
+            view.findViewById<TextView>(R.id.date_15),
+            view.findViewById<TextView>(R.id.date_16),
+            view.findViewById<TextView>(R.id.date_17),
+            view.findViewById<TextView>(R.id.date_18)
+        )
+
+        dateItems.forEachIndexed { index, dateItem ->
+            dateItem.setOnClickListener {
+                // Update the selected date UI
+                dateItems.forEach { it.setBackgroundResource(0) }
+                dateItem.setBackgroundResource(R.drawable.rounded_selection)
+                
+                // Here you can update any data or UI based on the selected date
+                // For example, update meditation sessions or chakra readings for the selected date
+            }
         }
     }
 

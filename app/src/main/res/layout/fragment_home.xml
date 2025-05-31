@@ -60,6 +60,7 @@
 
             <!-- Selected Date -->
             <LinearLayout
+                android:id="@+id/date_12"
                 android:layout_width="48dp"
                 android:layout_height="64dp"
                 android:orientation="vertical"
@@ -83,6 +84,7 @@
 
             <!-- Other Dates -->
             <TextView
+                android:id="@+id/date_13"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -92,6 +94,7 @@
                 android:textColor="#888"
                 android:layout_marginStart="8dp"/>
             <TextView
+                android:id="@+id/date_14"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -100,6 +103,7 @@
                 android:textSize="12sp"
                 android:textColor="#888"/>
             <TextView
+                android:id="@+id/date_15"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -108,6 +112,7 @@
                 android:textSize="12sp"
                 android:textColor="#888"/>
             <TextView
+                android:id="@+id/date_16"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -116,6 +121,7 @@
                 android:textSize="12sp"
                 android:textColor="#888"/>
             <TextView
+                android:id="@+id/date_17"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -124,6 +130,7 @@
                 android:textSize="12sp"
                 android:textColor="#888"/>
             <TextView
+                android:id="@+id/date_18"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -180,6 +187,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/mindfulness_card"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:cardCornerRadius="20dp"
@@ -212,6 +220,7 @@
             </LinearLayout>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/healing_card"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
