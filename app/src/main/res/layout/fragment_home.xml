@@ -60,7 +60,6 @@
 
             <!-- Selected Date -->
             <LinearLayout
-                android:id="@+id/date_12"
                 android:layout_width="48dp"
                 android:layout_height="64dp"
                 android:orientation="vertical"
@@ -84,7 +83,6 @@
 
             <!-- Other Dates -->
             <TextView
-                android:id="@+id/date_13"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -94,7 +92,6 @@
                 android:textColor="#888"
                 android:layout_marginStart="8dp"/>
             <TextView
-                android:id="@+id/date_14"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -103,7 +100,6 @@
                 android:textSize="12sp"
                 android:textColor="#888"/>
             <TextView
-                android:id="@+id/date_15"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -112,7 +108,6 @@
                 android:textSize="12sp"
                 android:textColor="#888"/>
             <TextView
-                android:id="@+id/date_16"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -121,7 +116,6 @@
                 android:textSize="12sp"
                 android:textColor="#888"/>
             <TextView
-                android:id="@+id/date_17"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -130,7 +124,6 @@
                 android:textSize="12sp"
                 android:textColor="#888"/>
             <TextView
-                android:id="@+id/date_18"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -261,6 +254,7 @@
 
         <!-- Discover new insights -->
         <LinearLayout
+            android:id="@+id/insights_section"
             android:layout_width="match_parent"
             android:layout_height="28dp"
             android:orientation="horizontal"
@@ -276,6 +270,7 @@
                 android:textSize="16sp"
                 android:textColor="#222"/>
             <TextView
+                android:id="@+id/personalize_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Personalize"
@@ -283,6 +278,7 @@
                 android:textColor="#888"
                 android:layout_marginEnd="8dp"/>
             <TextView
+                android:id="@+id/explore_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Explore"

@@ -8,21 +8,22 @@
     tools:context=".WelcomeActivity">
 
     <!-- Logo -->
-    <ImageView
-        android:id="@+id/welcomeLogo"
-        android:layout_width="400dp"
-        android:layout_height="500dp"
-        android:src="@drawable/logo_harmonic"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="80dp" />
 
     <!-- App Name -->
 
     <!-- Subtitle -->
 
     <!-- Begin Button -->
+    <ImageView
+        android:id="@+id/welcomeLogo"
+        android:layout_width="333dp"
+        android:layout_height="403dp"
+        android:layout_marginTop="116dp"
+        android:src="@drawable/logo_harmonic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/buttonBegin"
         android:layout_width="0dp"
