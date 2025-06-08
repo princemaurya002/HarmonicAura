@@ -1,19 +1,25 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:flex="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E6EAF0">
+    android:fillViewport="true"
+    android:background="@color/bg_gray">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:padding="20dp"
+        android:paddingBottom="80dp">
 
         <!-- Title -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Chakra visualization"
+            android:text="Add New Entry"
             android:textStyle="bold"
             android:textSize="22sp"
             android:textColor="#222"
@@ -30,12 +36,11 @@
             android:layout_marginBottom="8dp"/>
 
         <!-- Chips for energy centers -->
-        <FlexboxLayout
-            xmlns:app="http://schemas.android.com/apk/res-auto"
+        <com.google.android.flexbox.FlexboxLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:flexWrap="wrap"
-            app:justifyContent="flex_start"
+            flex:flexWrap="wrap"
+            flex:justifyContent="flex_start"
             android:layout_marginBottom="16dp">
 
             <TextView
@@ -65,7 +70,7 @@
             <TextView
                 style="@style/ChipStyle"
                 android:text="Inner harmony"/>
-        </FlexboxLayout>
+        </com.google.android.flexbox.FlexboxLayout>
 
         <!-- Aura label -->
         <TextView
@@ -123,38 +128,38 @@
             <ImageView
                 android:layout_width="28dp"
                 android:layout_height="28dp"
-                android:src="@drawable/ic_crown"
-                android:tint="#111"
+                android:src="@drawable/ic_stats"
+
                 android:layout_marginEnd="8dp"/>
             <ImageView
                 android:layout_width="28dp"
                 android:layout_height="28dp"
-                android:src="@drawable/ic_eye"
-                android:tint="#111"
+                android:src="@drawable/ic_stats"
+
                 android:layout_marginEnd="8dp"/>
             <ImageView
                 android:layout_width="28dp"
                 android:layout_height="28dp"
-                android:src="@drawable/ic_drop"
-                android:tint="#111"
+                android:src="@drawable/ic_stats"
+
                 android:layout_marginEnd="8dp"/>
             <ImageView
                 android:layout_width="28dp"
                 android:layout_height="28dp"
-                android:src="@drawable/ic_heart"
-                android:tint="#111"
+                android:src="@drawable/ic_stats"
+
                 android:layout_marginEnd="8dp"/>
             <ImageView
                 android:layout_width="28dp"
                 android:layout_height="28dp"
-                android:src="@drawable/ic_grid"
-                android:tint="#111"
+                android:src="@drawable/ic_stats"
+
                 android:layout_marginEnd="8dp"/>
             <ImageView
                 android:layout_width="28dp"
                 android:layout_height="28dp"
-                android:src="@drawable/ic_drop"
-                android:tint="#111"/>
+                android:src="@drawable/ic_stats"
+               />
         </LinearLayout>
 
         <!-- Alignment label -->
@@ -174,7 +179,7 @@
             app:cardCornerRadius="24dp"
             app:cardElevation="0dp"
             android:layout_marginBottom="24dp"
-            app:cardBackgroundColor="#D9D9D9">
+            app:cardBackgroundColor="@color/dark_gray">
 
             <GridLayout
                 android:layout_width="match_parent"
@@ -214,4 +219,4 @@
             android:background="@drawable/bg_explore_btn"
             android:textAllCaps="false"/>
     </LinearLayout>
-</ScrollView>
+</androidx.core.widget.NestedScrollView>

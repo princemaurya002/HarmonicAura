@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "975142616493",
+    "project_id": "harmonicaura-627d2",
+    "storage_bucket": "harmonicaura-627d2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:975142616493:android:4c7ca139937e2b39957524",
+        "android_client_info": {
+          "package_name": "com.princemaurya.harmonicaura"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "975142616493-a1l8iel3me63pp62jj8c75ta5t7dgkt2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.princemaurya.harmonicaura",
+            "certificate_hash": "21224ff4b9a507440f1cc798048a3eaf87c2ada0"
+          }
+        },
+        {
+          "client_id": "975142616493-c96k8pch66nf83tv20dvehmo66ferrh5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFlq02Ik4XpJhdxXmGNHc8Wiu2SmtM_Ac"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "975142616493-c96k8pch66nf83tv20dvehmo66ferrh5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

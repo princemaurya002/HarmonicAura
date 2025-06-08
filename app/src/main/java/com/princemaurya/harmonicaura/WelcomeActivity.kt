@@ -11,8 +11,8 @@ class WelcomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_welcome)
 
         findViewById<Button>(R.id.buttonBegin).setOnClickListener {
-            // Example: Go to LoginActivity
-            startActivity(Intent(this, LoginActivity::class.java))
+            // Navigate to MainActivity
+            startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
     }

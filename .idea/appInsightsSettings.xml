@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.princemaurya.harmonicaura" />
+                  <option name="mobileSdkAppId" value="1:975142616493:android:4c7ca139937e2b39957524" />
+                  <option name="projectId" value="harmonicaura-627d2" />
+                  <option name="projectNumber" value="975142616493" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

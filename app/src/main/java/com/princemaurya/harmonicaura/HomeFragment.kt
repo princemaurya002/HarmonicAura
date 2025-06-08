@@ -70,8 +70,8 @@ class HomeFragment : Fragment() {
 
         // Find the personalize and explore text views
         view.findViewById<TextView>(R.id.personalize_text)?.setOnClickListener {
-            // Navigate to ProfileFragment
-            findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
+            // Navigate to UserProfileFragment
+            findNavController().navigate(R.id.action_homeFragment_to_userProfileFragment)
         }
 
         view.findViewById<TextView>(R.id.explore_text)?.setOnClickListener {

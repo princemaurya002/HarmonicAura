@@ -10,46 +10,22 @@
         android:label="Home">
         <action
             android:id="@+id/action_homeFragment_to_chakraFragment"
-            app:destination="@id/chakraFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            app:destination="@id/chakraFragment" />
         <action
             android:id="@+id/action_homeFragment_to_healingFrequenciesFragment"
-            app:destination="@id/healingFrequenciesFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            app:destination="@id/healingFrequenciesFragment" />
         <action
             android:id="@+id/action_homeFragment_to_meditationsFragment"
-            app:destination="@id/meditationsFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            app:destination="@id/meditationsFragment" />
         <action
             android:id="@+id/action_homeFragment_to_insightsFragment"
-            app:destination="@id/insightsFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            app:destination="@id/insightsFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_profileFragment"
-            app:destination="@id/profileFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            android:id="@+id/action_homeFragment_to_userProfileFragment"
+            app:destination="@id/userProfileFragment" />
         <action
             android:id="@+id/action_homeFragment_to_statsFragment"
-            app:destination="@id/statsFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            app:destination="@id/statsFragment" />
     </fragment>
 
     <fragment
@@ -65,11 +41,16 @@
     <fragment
         android:id="@+id/penFragment"
         android:name="com.princemaurya.harmonicaura.PenFragment"
-        android:label="Pen" />
+        android:label="Journal" />
 
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.princemaurya.harmonicaura.ProfileFragment"
+        android:label="Profile" />
+
+    <fragment
+        android:id="@+id/userProfileFragment"
+        android:name="com.princemaurya.harmonicaura.UserProfileFragment"
         android:label="Profile" />
 
     <fragment

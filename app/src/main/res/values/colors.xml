@@ -3,7 +3,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="bg_gray">#F0F3F8</color>
-    <color name="primary_blue">#AED9FC</color>
+    <color name="primary_blue">#4A90E2</color>
+    <color name="primary_blue_transparent">#334A90E2</color>
     <color name="violet">#B084EB</color>
     <color name="magenta">#FF5FCF</color>
     <color name="vibrant_green">#53D769</color>
