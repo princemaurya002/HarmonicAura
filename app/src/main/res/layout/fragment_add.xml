@@ -1,222 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:flex="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg_gray"
     android:fillViewport="true"
-    android:background="@color/bg_gray">
+    android:scrollbars="none">
 
     <LinearLayout
+        android:id="@+id/add_main_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="20dp"
-        android:paddingBottom="80dp">
+        android:padding="16dp">
 
-        <!-- Title -->
+        <!-- Header: Chakra visualization -->
         <TextView
+            android:id="@+id/title_chakra_visualization"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add New Entry"
-            android:textStyle="bold"
-            android:textSize="22sp"
+            android:text="Chakra visualization"
             android:textColor="#222"
-            android:layout_marginBottom="16dp"/>
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="24dp" />
 
-        <!-- Energy centers label -->
+        <!-- Energy centers section -->
         <TextView
+            android:id="@+id/title_energy_centers"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Energy centers"
-            android:textStyle="bold"
-            android:textSize="16sp"
             android:textColor="#222"
-            android:layout_marginBottom="8dp"/>
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp" />
 
-        <!-- Chips for energy centers -->
         <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/flexbox_energy_centers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            flex:flexWrap="wrap"
-            flex:justifyContent="flex_start"
-            android:layout_marginBottom="16dp">
+            app:flexWrap="wrap"
+            app:alignContent="flex_start"
+            app:alignItems="flex_start"
+            app:justifyContent="flex_start"
+            android:layout_marginBottom="24dp" />
 
-            <TextView
-                style="@style/ChipStyle"
-                android:text="Calmness"/>
-            <TextView
-                style="@style/ChipStyle"
-                android:text="Serenity"/>
-            <TextView
-                style="@style/ChipStyle"
-                android:text="Balance"/>
-            <TextView
-                style="@style/ChipStyle"
-                android:text="Clarity"/>
-            <TextView
-                style="@style/ChipStyle"
-                android:text="Relaxation"/>
-            <TextView
-                style="@style/ChipStyle"
-                android:text="Mindfulness"/>
-            <TextView
-                style="@style/ChipStyle"
-                android:text="Peace"/>
-            <TextView
-                style="@style/ChipStyle"
-                android:text="Tranquility"/>
-            <TextView
-                style="@style/ChipStyle"
-                android:text="Inner harmony"/>
-        </com.google.android.flexbox.FlexboxLayout>
-
-        <!-- Aura label -->
+        <!-- Aura section -->
         <TextView
+            android:id="@+id/title_aura"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Aura"
-            android:textStyle="bold"
-            android:textSize="16sp"
             android:textColor="#222"
-            android:layout_marginBottom="8dp"/>
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp" />
 
-        <!-- Aura days row -->
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_aura_dates"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="12dp">
+            android:scrollbars="none"
+            android:clipToPadding="false"
+            android:paddingHorizontal="4dp"
+            android:layout_marginBottom="24dp" />
 
-            <TextView
-                style="@style/DayStyle"
-                android:text="27"/>
-            <TextView
-                style="@style/DayStyle"
-                android:text="28"/>
-            <TextView
-                style="@style/DaySelectedStyle"
-                android:text="29"/>
-            <TextView
-                style="@style/DayStyle"
-                android:text="30"/>
-            <TextView
-                style="@style/DayStyle"
-                android:text="1"/>
-        </LinearLayout>
-
-        <!-- Vibration label -->
+        <!-- Vibratio section -->
         <TextView
+            android:id="@+id/title_vibratio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Vibration"
-            android:textStyle="bold"
-            android:textSize="16sp"
+            android:text="Vibratio"
             android:textColor="#222"
-            android:layout_marginBottom="8dp"/>
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp" />
 
-        <!-- Vibration icons row -->
         <LinearLayout
+            android:id="@+id/layout_vibration_icons"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="16dp">
+            android:gravity="start"
+            android:layout_marginBottom="24dp" />
 
-            <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:src="@drawable/ic_stats"
-
-                android:layout_marginEnd="8dp"/>
-            <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:src="@drawable/ic_stats"
-
-                android:layout_marginEnd="8dp"/>
-            <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:src="@drawable/ic_stats"
-
-                android:layout_marginEnd="8dp"/>
-            <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:src="@drawable/ic_stats"
-
-                android:layout_marginEnd="8dp"/>
-            <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:src="@drawable/ic_stats"
-
-                android:layout_marginEnd="8dp"/>
-            <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:src="@drawable/ic_stats"
-               />
-        </LinearLayout>
-
-        <!-- Alignment label -->
+        <!-- Alignment section -->
         <TextView
+            android:id="@+id/title_alignment_grid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Alignment"
-            android:textStyle="bold"
-            android:textSize="16sp"
             android:textColor="#222"
-            android:layout_marginBottom="8dp"/>
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp" />
 
-        <!-- Calendar grid -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="24dp"
+            app:cardCornerRadius="16dp"
             app:cardElevation="0dp"
             android:layout_marginBottom="24dp"
-            app:cardBackgroundColor="@color/dark_gray">
+            app:cardBackgroundColor="#E5E9EE">
 
             <GridLayout
+                android:id="@+id/grid_alignment_dates"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:columnCount="5"
-                android:padding="16dp">
+                android:columnCount="7"
+                android:rowCount="3"
+                android:padding="12dp"
+                android:alignmentMode="alignMargins"
+                android:columnOrderPreserved="false"
+                android:useDefaultMargins="true" />
 
-                <!-- Days 30, 31, 1, 2, 3, 4, ... -->
-                <TextView style="@style/CalendarDayStyle" android:text="30"/>
-                <TextView style="@style/CalendarDayStyle" android:text="31"/>
-                <TextView style="@style/CalendarDayStyle" android:text="1"/>
-                <TextView style="@style/CalendarDayStyle" android:text="2"/>
-                <TextView style="@style/CalendarDayStyle" android:text="3"/>
-                <TextView style="@style/CalendarDayStyle" android:text="4"/>
-                <TextView style="@style/CalendarDayStyle" android:text="5"/>
-                <TextView style="@style/CalendarDayStyle" android:text="6"/>
-                <TextView style="@style/CalendarDayStyle" android:text="7"/>
-                <TextView style="@style/CalendarDayStyle" android:text="8"/>
-                <TextView style="@style/CalendarDayStyle" android:text="9"/>
-                <TextView style="@style/CalendarDayStyle" android:text="10"/>
-                <TextView style="@style/CalendarDaySelectedStyle" android:text="11"/>
-                <TextView style="@style/CalendarDaySelectedStyle" android:text="12"/>
-                <TextView style="@style/CalendarDaySelectedStyle" android:text="13"/>
-                <TextView style="@style/CalendarDaySelectedStyle" android:text="14"/>
-                <TextView style="@style/CalendarDaySelectedStyle" android:text="15"/>
-                <TextView style="@style/CalendarDayStyle" android:text="16"/>
-            </GridLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Explore button -->
+        <!-- Explore Button -->
         <Button
+            android:id="@+id/button_explore"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
             android:text="Explore"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="#fff"
-            android:background="@drawable/bg_explore_btn"
-            android:textAllCaps="false"/>
+            android:backgroundTint="@color/primary_blue"
+            android:paddingVertical="12dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            app:cornerRadius="24dp" />
+
     </LinearLayout>
-</androidx.core.widget.NestedScrollView>
+
+</ScrollView>

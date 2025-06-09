@@ -2,14 +2,34 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="bg_gray">#F0F3F8</color>
-    <color name="primary_blue">#4A90E2</color>
+    <color name="bg_gray">#F5F7FA</color>
+    <color name="primary_blue">#3369FF</color>
     <color name="primary_blue_transparent">#334A90E2</color>
     <color name="violet">#B084EB</color>
     <color name="magenta">#FF5FCF</color>
     <color name="vibrant_green">#53D769</color>
     <color name="gradient_green">#7ED957</color>
     <color name="purple">#A74CED</color>
-    <color name="dark_gray">#D2D2D2</color>
-
+    <color name="dark_gray">#222222</color>
+    <color name="shimmer_start">#DDDDDD</color>
+    <color name="shimmer_center">#EEEEEE</color>
+    <color name="shimmer_end">#DDDDDD</color>
+    <color name="success">#4CAF50</color>
+    <color name="error">#F44336</color>
+    <color name="warning">#FFC107</color>
+    <color name="info">#2196F3</color>
+    <color name="light_blue">#D9EDFF</color>
+    <color name="grey_text">#888888</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="grey">#F1F2F4</color>
+    <color name="orange">#FF9800</color>
+    <color name="green">#4CAF50</color>
+    <color name="light_gray_background">#E0E0E0</color>
+    <color name="light_blue_background">#D9EDFF</color>
+    <color name="blue_grey_500">#607D8B</color>
+    <color name="blue_grey_700">#455A64</color>
 </resources>

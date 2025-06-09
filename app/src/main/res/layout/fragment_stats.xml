@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -5,6 +6,7 @@
     android:background="@color/bg_gray">
 
     <LinearLayout
+        android:id="@+id/stats_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -21,8 +23,7 @@
             <ImageView
                 android:layout_width="28dp"
                 android:layout_height="28dp"
-                android:src="@drawable/knife_fork"
-                />
+                android:src="@drawable/knife_fork"/>
 
             <View
                 android:layout_width="0dp"
@@ -32,12 +33,12 @@
             <ImageView
                 android:layout_width="28dp"
                 android:layout_height="28dp"
-                android:src="@drawable/search_ic"
-                />
+                android:src="@drawable/search_ic"/>
         </LinearLayout>
 
         <!-- Title -->
         <TextView
+            android:id="@+id/title_chakra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Chakra visualization"
@@ -48,6 +49,7 @@
 
         <!-- Balance and harmony section -->
         <TextView
+            android:id="@+id/title_balance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Balance and harmony"
@@ -57,6 +59,7 @@
             android:layout_marginBottom="8dp"/>
 
         <LinearLayout
+            android:id="@+id/balance_cards"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -137,6 +140,7 @@
 
         <!-- Guided sessions section -->
         <TextView
+            android:id="@+id/title_guided"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Guided sessions"
@@ -146,6 +150,7 @@
             android:layout_marginBottom="8dp"/>
 
         <LinearLayout
+            android:id="@+id/guided_cards"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -226,6 +231,7 @@
 
         <!-- Personal growth section -->
         <TextView
+            android:id="@+id/title_personal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Personal growth"
@@ -235,6 +241,7 @@
             android:layout_marginBottom="8dp"/>
 
         <LinearLayout
+            android:id="@+id/personal_cards"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"

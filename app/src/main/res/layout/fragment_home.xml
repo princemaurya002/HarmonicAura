@@ -12,6 +12,7 @@
 
         <!-- Top Logo and Welcome -->
         <LinearLayout
+            android:id="@+id/welcome_section"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -26,18 +27,37 @@
                 android:src="@drawable/meditation_logo"
                 android:background="@drawable/circle_white"
                 android:padding="4dp"
-                android:layout_marginTop="8dp"
                 android:scaleType="centerCrop"/>
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Welcome to"
-                android:textStyle="bold"
-                android:textSize="34sp"
-                android:layout_marginTop="8dp"
-                android:layout_marginStart="16dp"
-                android:textColor="#222"/>
+                android:orientation="horizontal"
+                android:layout_marginStart="16dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Welcome"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/user_name_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                       />
+                </LinearLayout>
+
+            </LinearLayout>
         </LinearLayout>
 
         <!-- Chakra Dashboard Section -->
@@ -50,88 +70,16 @@
             android:layout_marginTop="24dp"
             android:textColor="#222"/>
 
-        <!-- Date Row -->
-        <LinearLayout
+        <!-- Date Picker -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/date_picker"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginTop="8dp"
-            android:gravity="center_vertical">
-
-            <!-- Selected Date -->
-            <LinearLayout
-                android:layout_width="48dp"
-                android:layout_height="64dp"
-                android:orientation="vertical"
-                android:background="@drawable/rounded_selection"
-                android:gravity="center">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="12"
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:textColor="#222"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Ener"
-                    android:textSize="12sp"
-                    android:textColor="#222"/>
-            </LinearLayout>
-
-            <!-- Other Dates -->
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="13\nPers"
-                android:gravity="center"
-                android:textSize="12sp"
-                android:textColor="#888"
-                android:layout_marginStart="8dp"/>
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="14\nGui"
-                android:gravity="center"
-                android:textSize="12sp"
-                android:textColor="#888"/>
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="15\nHea"
-                android:gravity="center"
-                android:textSize="12sp"
-                android:textColor="#888"/>
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="16\nMon"
-                android:gravity="center"
-                android:textSize="12sp"
-                android:textColor="#888"/>
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="17\nCus"
-                android:gravity="center"
-                android:textSize="12sp"
-                android:textColor="#888"/>
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="18\nSea"
-                android:gravity="center"
-                android:textSize="12sp"
-                android:textColor="#888"/>
-        </LinearLayout>
+            android:clipToPadding="false"
+            android:paddingHorizontal="12dp"
+            android:orientation="horizontal"
+            android:scrollbars="none"/>
 
         <!-- Chakra, Healing, Mindfulness Cards -->
         <LinearLayout

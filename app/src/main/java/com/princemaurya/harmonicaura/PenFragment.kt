@@ -5,6 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.cardview.widget.CardView
+import androidx.core.view.children
+import com.princemaurya.harmonicaura.utils.AnimationUtils
+import com.princemaurya.harmonicaura.utils.HapticUtils
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,6 +41,54 @@ class PenFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_pen, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        applyAnimations(view)
+    }
+
+    private fun applyAnimations(view: View) {
+        // Animate header
+        view.findViewById<TextView>(R.id.title_moments)?.let {
+            AnimationUtils.animateFadeIn(it, 300L)
+        }
+
+        // Animate moments container
+        view.findViewById<CardView>(R.id.moments_container)?.let { container ->
+            AnimationUtils.animateSlideUp(container, 400L)
+            
+            // Animate each moment with staggered delay
+            container.findViewById<LinearLayout>(R.id.moments_list)?.let { momentsList ->
+                momentsList.children.forEachIndexed { index, moment ->
+                    AnimationUtils.animateSlideUp(moment, 500L + (index * 100L))
+                    
+                    // Add click animation and haptic feedback
+                    moment.setOnClickListener {
+                        AnimationUtils.animateButtonClick(it) {
+                            HapticUtils.performViewHapticFeedback(it, HapticUtils.HapticType.LIGHT)
+                            // Handle moment click
+                        }
+                    }
+                }
+            }
+        }
+
+        // Add ripple effect to action buttons
+        view.findViewById<ViewGroup>(R.id.moments_container)?.let { container ->
+            container.children.forEach { child ->
+                if (child is LinearLayout) {
+                    child.children.forEach { button ->
+                        button.setOnClickListener {
+                            AnimationUtils.createRippleEffect(it) {
+                                HapticUtils.performViewHapticFeedback(it, HapticUtils.HapticType.LIGHT)
+                                // Handle button click
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     companion object {

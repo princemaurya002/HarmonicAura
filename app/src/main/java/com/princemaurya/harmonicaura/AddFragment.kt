@@ -1,10 +1,23 @@
 package com.princemaurya.harmonicaura
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.GridLayout
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.flexbox.FlexboxLayout
+import com.princemaurya.harmonicaura.adapters.AuraDateAdapter
+import com.princemaurya.harmonicaura.utils.AnimationUtils
+import com.princemaurya.harmonicaura.utils.HapticUtils
+import java.util.Calendar
+import java.util.Date
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -31,10 +44,139 @@ class AddFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
+        savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_add, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        applyEntranceAnimations(view)
+
+        // Energy centers tags
+        val energyCenters = listOf(
+            "Calmness", "Serenity", "Balance",
+            "Clarity", "Relaxation", "Mindfulness",
+            "Peace", "Tranquility", "Inner harmony"
+        )
+        val flexboxEnergyCenters = view.findViewById<FlexboxLayout>(R.id.flexbox_energy_centers)
+        energyCenters.forEachIndexed { index, tagText ->
+            val tagView = LayoutInflater.from(context).inflate(R.layout.item_energy_center_tag, flexboxEnergyCenters, false) as TextView
+            tagView.text = tagText
+            flexboxEnergyCenters.addView(tagView)
+
+            AnimationUtils.animateScaleIn(tagView)
+
+            tagView.setOnClickListener {
+                AnimationUtils.animateButtonClick(it) {
+                    HapticUtils.performViewHapticFeedback(it, HapticUtils.HapticType.LIGHT)
+                    // Handle tag click
+                }
+            }
+        }
+
+        // Aura date picker
+        val recyclerAuraDates = view.findViewById<RecyclerView>(R.id.recycler_aura_dates)
+        recyclerAuraDates.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        val auraDateAdapter = AuraDateAdapter {
+            // Handle aura date selection
+        }
+        recyclerAuraDates.adapter = auraDateAdapter
+
+        // Scroll to today's date (middle of the list)
+        recyclerAuraDates.post {
+            val today = Calendar.getInstance().apply { set(Calendar.HOUR_OF_DAY, 0); set(Calendar.MINUTE, 0); set(Calendar.SECOND, 0); set(Calendar.MILLISECOND, 0) }.time
+            val todayPosition = auraDateAdapter.dates.indexOfFirst { 
+                val cal = Calendar.getInstance().apply { time = it; set(Calendar.HOUR_OF_DAY, 0); set(Calendar.MINUTE, 0); set(Calendar.SECOND, 0); set(Calendar.MILLISECOND, 0) }
+                cal.time == today
+            }
+            if (todayPosition != -1) {
+                recyclerAuraDates.scrollToPosition(todayPosition)
+            }
+        }
+
+        // Vibration icons
+        val vibrationIcons = listOf(
+            R.drawable.ic_launcher_foreground, R.drawable.ic_launcher_foreground, R.drawable.ic_launcher_foreground, R.drawable.ic_launcher_foreground
+        )
+        val layoutVibrationIcons = view.findViewById<LinearLayout>(R.id.layout_vibration_icons)
+        vibrationIcons.forEachIndexed { index, iconResId ->
+            val iconView = LayoutInflater.from(context).inflate(R.layout.item_vibration_icon, layoutVibrationIcons, false) as ImageView
+            iconView.setImageResource(iconResId)
+            layoutVibrationIcons.addView(iconView)
+
+            AnimationUtils.animateScaleIn(iconView)
+
+            iconView.setOnClickListener {
+                AnimationUtils.animateButtonClick(it) {
+                    HapticUtils.performViewHapticFeedback(it, HapticUtils.HapticType.LIGHT)
+                    // Handle icon click
+                }
+            }
+        }
+
+        // Alignment grid dates
+        val gridAlignmentDates = view.findViewById<GridLayout>(R.id.grid_alignment_dates)
+        val alignmentDates = listOf(
+            "30", "31", "1", "2", "3", "4", "5",
+            "6", "7", "8", "9", "10", "11",
+            "12", "13", "14", "15", "16"
+        )
+        alignmentDates.forEachIndexed { index, dateText ->
+            val dateView = LayoutInflater.from(context).inflate(R.layout.item_alignment_date, gridAlignmentDates, false) as TextView
+            dateView.text = dateText
+            gridAlignmentDates.addView(dateView)
+
+            // Set selected state for specific dates (e.g., 12, 13, 14, 15)
+            if (dateText in listOf("12", "13", "14", "15")) {
+                dateView.background = context?.getDrawable(R.drawable.bg_alignment_selected)
+                dateView.setTextColor(resources.getColor(R.color.dark_gray, null))
+            } else {
+                dateView.background = context?.getDrawable(R.drawable.bg_alignment_unselected)
+                dateView.setTextColor(resources.getColor(R.color.grey_text, null))
+            }
+
+            AnimationUtils.animateScaleIn(dateView)
+
+            dateView.setOnClickListener {
+                AnimationUtils.animateButtonClick(it) { 
+                    HapticUtils.performViewHapticFeedback(it, HapticUtils.HapticType.LIGHT)
+                    // Handle alignment date click
+                }
+            }
+        }
+
+        // Explore button
+        val buttonExplore = view.findViewById<Button>(R.id.button_explore)
+        buttonExplore.setOnClickListener {
+            AnimationUtils.animateButtonClick(it) {
+                HapticUtils.performViewHapticFeedback(it, HapticUtils.HapticType.MEDIUM)
+                // Handle explore button click (e.g., navigate)
+            }
+        }
+    }
+
+    private fun applyEntranceAnimations(view: View) {
+        // Animate section titles
+        view.findViewById<TextView>(R.id.title_chakra_visualization)?.let {
+            AnimationUtils.animateFadeIn(it, 300L)
+        }
+        view.findViewById<TextView>(R.id.title_energy_centers)?.let {
+            AnimationUtils.animateFadeIn(it, 400L)
+        }
+        view.findViewById<TextView>(R.id.title_aura)?.let {
+            AnimationUtils.animateFadeIn(it, 500L)
+        }
+        view.findViewById<TextView>(R.id.title_vibratio)?.let {
+            AnimationUtils.animateFadeIn(it, 600L)
+        }
+        view.findViewById<TextView>(R.id.title_alignment_grid)?.let {
+            AnimationUtils.animateFadeIn(it, 700L)
+        }
+
+        // Animate the main layout elements with staggered delay for entrance
+        // Individual elements are animated in their respective sections.
+        // No direct animation for the entire main_layout to avoid double animations.
     }
 
     companion object {

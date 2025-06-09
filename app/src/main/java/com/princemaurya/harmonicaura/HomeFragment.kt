@@ -9,6 +9,13 @@ import androidx.navigation.fragment.findNavController
 import androidx.cardview.widget.CardView
 import android.widget.LinearLayout
 import android.widget.TextView
+import com.princemaurya.harmonicaura.auth.FirebaseAuthManager
+import com.princemaurya.harmonicaura.utils.AnimationUtils
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.princemaurya.harmonicaura.adapters.DateAdapter
+import com.princemaurya.harmonicaura.utils.HapticUtils
+import java.util.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -44,40 +51,137 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         
+        // Display user name
+        displayUserName(view)
+        
+        // Apply entrance animations
+        applyEntranceAnimations(view)
+        
         // Find the chakra card view
         view.findViewById<CardView>(R.id.chakra_card)?.setOnClickListener {
-            // Navigate to ChakraFragment
-            findNavController().navigate(R.id.action_homeFragment_to_chakraFragment)
+            AnimationUtils.animateCardClick(it as CardView) {
+                // Navigate to ChakraFragment
+                findNavController().navigate(R.id.action_homeFragment_to_chakraFragment)
+            }
         }
 
         // Find the healing card view
         view.findViewById<CardView>(R.id.healing_card)?.setOnClickListener {
-            // Navigate to HealingFrequenciesFragment
-            findNavController().navigate(R.id.action_homeFragment_to_healingFrequenciesFragment)
+            AnimationUtils.animateCardClick(it as CardView) {
+                // Navigate to HealingFrequenciesFragment
+                findNavController().navigate(R.id.action_homeFragment_to_healingFrequenciesFragment)
+            }
         }
 
         // Find the mindfulness card view
         view.findViewById<CardView>(R.id.mindfulness_card)?.setOnClickListener {
-            // Navigate to MeditationsFragment
-            findNavController().navigate(R.id.action_homeFragment_to_meditationsFragment)
+            AnimationUtils.animateCardClick(it as CardView) {
+                // Navigate to MeditationsFragment
+                findNavController().navigate(R.id.action_homeFragment_to_meditationsFragment)
+            }
         }
 
         // Find the insights section
         view.findViewById<LinearLayout>(R.id.insights_section)?.setOnClickListener {
-            // Navigate to InsightsFragment
-            findNavController().navigate(R.id.action_homeFragment_to_insightsFragment)
+            AnimationUtils.createRippleEffect(it) {
+                // Navigate to InsightsFragment
+                findNavController().navigate(R.id.action_homeFragment_to_insightsFragment)
+            }
         }
 
         // Find the personalize and explore text views
         view.findViewById<TextView>(R.id.personalize_text)?.setOnClickListener {
-            // Navigate to UserProfileFragment
-            findNavController().navigate(R.id.action_homeFragment_to_userProfileFragment)
+            AnimationUtils.animateButtonClick(it) {
+                // Navigate to UserProfileFragment
+                findNavController().navigate(R.id.action_homeFragment_to_userProfileFragment)
+            }
         }
 
         view.findViewById<TextView>(R.id.explore_text)?.setOnClickListener {
-            // Navigate to StatsFragment
-            findNavController().navigate(R.id.action_homeFragment_to_statsFragment)
+            AnimationUtils.animateButtonClick(it) {
+                // Navigate to StatsFragment
+                findNavController().navigate(R.id.action_homeFragment_to_statsFragment)
+            }
         }
+
+        setupDatePicker(view)
+    }
+
+    private fun applyEntranceAnimations(view: View) {
+        // Animate welcome section
+        val welcomeSection = view.findViewById<LinearLayout>(R.id.welcome_section)
+        welcomeSection?.let {
+            AnimationUtils.animateFadeIn(it, 800)
+        }
+        
+        // Animate cards with staggered delay
+        val chakraCard = view.findViewById<CardView>(R.id.chakra_card)
+        val healingCard = view.findViewById<CardView>(R.id.healing_card)
+        val mindfulnessCard = view.findViewById<CardView>(R.id.mindfulness_card)
+        
+        chakraCard?.let {
+            AnimationUtils.animateSlideUp(it, 200)
+        }
+        
+        healingCard?.let {
+            AnimationUtils.animateSlideUp(it, 400)
+        }
+        
+        mindfulnessCard?.let {
+            AnimationUtils.animateSlideUp(it, 600)
+        }
+        
+        // Animate insights section
+        val insightsSection = view.findViewById<LinearLayout>(R.id.insights_section)
+        insightsSection?.let {
+            AnimationUtils.animateSlideUp(it, 800)
+        }
+    }
+
+    private fun displayUserName(view: View) {
+        val authManager = FirebaseAuthManager.getInstance(requireContext())
+        val currentUser = authManager.getCurrentUser()
+        
+        val userNameTextView = view.findViewById<TextView>(R.id.user_name_text)
+        
+        if (currentUser != null) {
+            // Try to get display name first, then email, then "User"
+            val displayName = currentUser.displayName
+            val email = currentUser.email
+            
+            val userName = when {
+                !displayName.isNullOrBlank() -> displayName
+                !email.isNullOrBlank() -> email.substringBefore('@') // Use part before @ from email
+                else -> "User"
+            }
+            
+            userNameTextView.text = userName
+        } else {
+            // If no user is logged in, show "Guest"
+            userNameTextView.text = "Guest"
+        }
+    }
+
+    private fun setupDatePicker(view: View) {
+        val datePicker = view.findViewById<RecyclerView>(R.id.date_picker)
+        datePicker.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        
+        val dateAdapter = DateAdapter { selectedDate ->
+            // Handle date selection
+            HapticUtils.performViewHapticFeedback(view, HapticUtils.HapticType.LIGHT)
+            // TODO: Update UI based on selected date
+        }
+        
+        datePicker.adapter = dateAdapter
+        
+        // Scroll to today's date (middle of the list)
+        datePicker.post {
+            val middlePosition = dateAdapter.itemCount / 2
+            datePicker.smoothScrollToPosition(middlePosition)
+        }
+
+        // Add entrance animation
+        AnimationUtils.animateSlideUp(datePicker, 400)
     }
 
     companion object {

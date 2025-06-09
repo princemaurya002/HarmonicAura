@@ -5,6 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.cardview.widget.CardView
+import androidx.core.view.children
+import com.princemaurya.harmonicaura.utils.AnimationUtils
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,6 +40,101 @@ class StatsFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_stats, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        applyAnimations(view)
+    }
+
+    private fun applyAnimations(view: View) {
+        // Animate section titles
+        view.findViewById<TextView>(R.id.title_chakra)?.let {
+            AnimationUtils.animateFadeIn(it, 300L)
+        }
+
+        // Animate "Balance and harmony" section
+        view.findViewById<TextView>(R.id.title_balance)?.let {
+            AnimationUtils.animateFadeIn(it, 400L)
+        }
+        view.findViewById<LinearLayout>(R.id.balance_cards)?.let { container ->
+            container.children.forEachIndexed { index, child ->
+                if (child is CardView) {
+                    AnimationUtils.animateSlideUp(child, 500L + (index * 100L))
+                    child.setOnClickListener {
+                        AnimationUtils.animateCardClick(it as CardView)
+                        // Handle card click
+                    }
+                } else if (child is LinearLayout) {
+                    child.children.forEach { innerChild ->
+                        if (innerChild is CardView) {
+                            AnimationUtils.animateSlideUp(innerChild, 500L + (index * 100L))
+                            innerChild.setOnClickListener {
+                                AnimationUtils.animateCardClick(it as CardView)
+                                // Handle card click
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // Animate "Guided sessions" section
+        view.findViewById<TextView>(R.id.title_guided)?.let {
+            AnimationUtils.animateFadeIn(it, 800L)
+        }
+        view.findViewById<LinearLayout>(R.id.guided_cards)?.let { container ->
+            container.children.forEachIndexed { index, child ->
+                if (child is CardView) {
+                    AnimationUtils.animateSlideUp(child, 900L + (index * 100L))
+                    child.setOnClickListener {
+                        AnimationUtils.animateCardClick(it as CardView)
+                        // Handle card click
+                    }
+                } else if (child is LinearLayout) {
+                    child.children.forEach { innerChild ->
+                        if (innerChild is CardView) {
+                            AnimationUtils.animateSlideUp(innerChild, 900L + (index * 100L))
+                            innerChild.setOnClickListener {
+                                AnimationUtils.animateCardClick(it as CardView)
+                                // Handle card click
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // Animate "Personal growth" section
+        view.findViewById<TextView>(R.id.title_personal)?.let {
+            AnimationUtils.animateFadeIn(it, 1200L)
+        }
+        view.findViewById<LinearLayout>(R.id.personal_cards)?.let { container ->
+            container.children.forEachIndexed { index, child ->
+                if (child is CardView) {
+                    AnimationUtils.animateSlideUp(child, 1300L + (index * 100L))
+                    child.setOnClickListener {
+                        AnimationUtils.animateCardClick(it as CardView)
+                        // Handle card click
+                    }
+                } else if (child is LinearLayout) {
+                    child.children.forEach { innerChild ->
+                        if (innerChild is CardView) {
+                            AnimationUtils.animateSlideUp(innerChild, 1300L + (index * 100L))
+                            innerChild.setOnClickListener {
+                                AnimationUtils.animateCardClick(it as CardView)
+                                // Handle card click
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // Add click animations to all cards within stats_container (if not already handled by section-specific loops)
+        // This part needs to iterate carefully to avoid re-adding listeners or redundant animations.
+        // Given the complex nested structure, direct targeting within sections is more robust.
+        // The previous broad iteration is removed to prevent errors and ensure proper animation calls.
     }
 
     companion object {
